@@ -28,6 +28,7 @@ public class template extends LinearOpMode {
 
         if (Math.abs(dif1) > Math.abs(dif2)) {
             telemetry.addline("White, moving on.");
+            telemetry.update();
             String hex32 = "FFFFFF";
 
             int decimal4 = Integer.parseInt(hex1,16);
@@ -43,6 +44,7 @@ public class template extends LinearOpMode {
 
             if (Math.abs(dif3) > Math.abs(dif4)) {
                 telemetry.addline("White, moving on.");
+                telemetry.update();
                 String hex33 = "FFFF00";
 
                 int decimal7 = Integer.parseInt(hex1,16);
@@ -54,19 +56,25 @@ public class template extends LinearOpMode {
 
                 telemetry.addline(dif5);
                 telemetry.addline(dif6);
+                telemetry.update();
+
                 if (Math.abs(dif5) > Math.abs(dif6)) {
                     telemetry.addline("White, ERROR");
+                    telemetry.update();
 
                 }else if (Math.abs(dif5) < Math.abs(dif6)) {
                     telemetry.addline("Gold, found in position 3");
+                    telemetry.update();
                 }
             }
             else if (Math.abs(dif3) < Math.abs(dif4)) {
                 telemetry.addline("Gold, found target in position 2");
+                telemetry.update();
             }
         }
         else if (Math.abs(dif1) < Math.abs(dif2)) {
             telemetry.addline("Gold, found target in position 1");
+            telemetry.update();
         }
     }
 }
