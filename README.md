@@ -1,7 +1,5 @@
-# Rev_Backup_Test
+# Robotex10176 2018 2019
 
-This is a TEST
-
-It is not permanent and is probably not going to stay
-
-I just figured I would start experimenting with the new REV hub
+This repository is a location for team 10176 Robotex to keep code
+designed for the new REV expansion hub because we are no longer using
+Android Studio and the phone have the source code built in.
