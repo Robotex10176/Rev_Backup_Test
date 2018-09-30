@@ -10,7 +10,7 @@ public class template extends LinearOpMode {
      * This function is executed when this Op Mode is selected from the Driver Station.
      */
     @Override
-    public static void main(String[ ] args) {
+    public void main(String[ ] args) {
         String hex1 = "FFFF00";
         String hex2 = "FFFFFF";
         String hex31 = "FFFFFF";
@@ -21,13 +21,15 @@ public class template extends LinearOpMode {
 
         int dif1 = decimal1-decimal3;
         int dif2 = decimal2-decimal3;
-
-        telemetry.addline(dif1);
-        telemetry.addline(dif2);
+        
+        
+        
+        telemetry.addLine(dif1);
+        telemetry.addLine(dif2);
         telemetry.update();
 
         if (Math.abs(dif1) > Math.abs(dif2)) {
-            telemetry.addline("White, moving on.");
+            telemetry.addLine("White, moving on.");
             telemetry.update();
             String hex32 = "FFFFFF";
 
@@ -38,12 +40,12 @@ public class template extends LinearOpMode {
             int dif3 = decimal4-decimal6;
             int dif4 = decimal5-decimal6;
 
-            telemetry.addline(dif3);
-            telemetry.addline(dif4);
+            telemetry.addLine(dif3);
+            telemetry.addLine(dif4);
             telemetry.update();
 
             if (Math.abs(dif3) > Math.abs(dif4)) {
-                telemetry.addline("White, moving on.");
+                telemetry.addLine("White, moving on.");
                 telemetry.update();
                 String hex33 = "FFFF00";
 
@@ -54,26 +56,26 @@ public class template extends LinearOpMode {
                 int dif5 = decimal7-decimal9;
                 int dif6 = decimal8-decimal9;
 
-                telemetry.addline(dif5);
-                telemetry.addline(dif6);
+                telemetry.addLine(dif5);
+                telemetry.addLine(dif6);
                 telemetry.update();
 
                 if (Math.abs(dif5) > Math.abs(dif6)) {
-                    telemetry.addline("White, ERROR");
+                    telemetry.addLine("White, ERROR");
                     telemetry.update();
 
                 }else if (Math.abs(dif5) < Math.abs(dif6)) {
-                    telemetry.addline("Gold, found in position 3");
+                    telemetry.addLine("Gold, found in position 3");
                     telemetry.update();
                 }
             }
             else if (Math.abs(dif3) < Math.abs(dif4)) {
-                telemetry.addline("Gold, found target in position 2");
+                telemetry.addLine("Gold, found target in position 2");
                 telemetry.update();
             }
         }
         else if (Math.abs(dif1) < Math.abs(dif2)) {
-            telemetry.addline("Gold, found target in position 1");
+            telemetry.addLine("Gold, found target in position 1");
             telemetry.update();
         }
     }
