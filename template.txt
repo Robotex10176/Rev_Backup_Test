@@ -17,6 +17,7 @@ public class template extends LinearOpMode {
       // Put run blocks here.
       while (opModeIsActive()) {
         // Put loop blocks here.
+        telemetry.addLine();
         telemetry.update();
       }
     }
