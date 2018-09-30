@@ -29,6 +29,7 @@ public class JewelPractice extends LinearOpMode {
       telemetry.addline("if the first jewel isn't gold, sense the second.");
       telemetry.addline("if it is gold, move it somehow");
       telemetry.addline("otherwise, move to the third jewel and move it somehow.");
+      telemetry.update();
         }
       }
     }
