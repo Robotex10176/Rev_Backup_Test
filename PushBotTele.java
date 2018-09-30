@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name = "PushBotTele (Blocks to Java)", group = "")
+@TeleOp(name = "PushBotTele", group = "")
 public class PushBotTele extends LinearOpMode {
 
   private DcMotor R;
