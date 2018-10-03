@@ -4,8 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
-@Autonomous(name = "JewelExample", group = "")
-public class JewelExample extends LinearOpMode {
+@Autonomous(name = "RGBLogic", group = "")
+public class RGBLogic extends LinearOpMode {
 
   private ColorSensor blockSensor;
 
@@ -26,6 +26,21 @@ public class JewelExample extends LinearOpMode {
       int bluea;
       int redt;
       int bluea2;
+      telemetry.addLine("ENTER NEXT JEWEL ... 5");
+      telemetry.update();
+      sleep(1000);
+      telemetry.addLine("ENTER NEXT JEWEL ... 4");
+      telemetry.update();
+      sleep(1000);
+      telemetry.addLine("ENTER NEXT JEWEL ... 3");
+      telemetry.update();
+      sleep(1000);
+      telemetry.addLine("ENTER NEXT JEWEL ... 2");
+      telemetry.update();
+      sleep(1000);
+      telemetry.addLine("ENTER NEXT JEWEL ... 1");
+      telemetry.update();
+      sleep(1000);
       //assuming you start at first jewel
       blue1 = blockSensor.blue();
       sleep(100);
@@ -38,6 +53,21 @@ public class JewelExample extends LinearOpMode {
       if (bluea > 75){
         //Jewel is not gold, move on
         //at this point robot is at second jewel
+        telemetry.addLine("ENTER NEXT JEWEL ... 5");
+        telemetry.update();
+        sleep(1000);
+        telemetry.addLine("ENTER NEXT JEWEL ... 4");
+        telemetry.update();
+        sleep(1000);
+        telemetry.addLine("ENTER NEXT JEWEL ... 3");
+        telemetry.update();
+        sleep(1000);
+        telemetry.addLine("ENTER NEXT JEWEL ... 2");
+        telemetry.update();
+        sleep(1000);
+        telemetry.addLine("ENTER NEXT JEWEL ... 1");
+        telemetry.update();
+        sleep(1000);                  
         blue4 = blockSensor.blue();
         sleep(100);
         blue5 = blockSensor.blue();
@@ -50,7 +80,7 @@ public class JewelExample extends LinearOpMode {
           telemetry.addLine("[FUNCTION] Knock off 3RD jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
-          sleep(5000);
+          sleep(2000);
         }else if (bluea2 < 75){
           //jewel is gold, move it
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
@@ -59,6 +89,9 @@ public class JewelExample extends LinearOpMode {
           sleep(5000);
         }else{
           //jewel error
+          telemetry.addLine("[ERROR]")
+          telemetry.update();
+          sleep(5000);
         }
       }else if (bluea < 75){
         //Jewel is gold, move it.
