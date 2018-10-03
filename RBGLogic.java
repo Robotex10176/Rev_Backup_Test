@@ -48,10 +48,14 @@ public class JewelExample extends LinearOpMode {
           //jewel is not gold, move to third and push it
           telemetry.addLine("[FUNCTION] Knock off 3RD jewel");
           telemetry.addLine("[FINISH]");
+          telemetry.update();
+          sleep(5000);
         }else if (bluea2 < 75){
           //jewel is gold, move it
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
           telemetry.addLine("[FINISH]");
+          telemetry.update();
+          sleep(5000);
         }else{
           //jewel error
         }
@@ -59,8 +63,11 @@ public class JewelExample extends LinearOpMode {
         //Jewel is gold, move it.
         telemetry.addLine("[FUNCTION] Knock off 1ST jewel");
         telemetry.addLine("[FINISH]");
+        telemetry.update();
+        sleep(5000);
       }else{
         telemetry.addLine("[ERROR, STILL GOING]");
+        telemetry.update();
         //jewel error, still going on with program
         blue4 = blockSensor.blue();
         sleep(100);
@@ -73,13 +80,19 @@ public class JewelExample extends LinearOpMode {
           //jewel is not gold, move to third and push it
           telemetry.addLine("[FUNCTION] Knock off 3RD jewel");
           telemetry.addLine("[FINISH]");
+          telemetry.update();
+          sleep(5000);
         }else if (bluea2 < 75){
           //jewel is gold, move it
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
           telemetry.addLine("[FINISH]");
+          telemetry.update();
+          sleep(5000);
         }else{
           //total jewel error
           telemetry.addLine("[TOTAL ERROR]");
+          telemetry.update();
+          sleep(5000);
         }
       }
         
