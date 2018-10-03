@@ -23,8 +23,9 @@ public class JewelExample extends LinearOpMode {
       int blue4;
       int blue5;
       int blue6;
-      int blue;
+      int bluea;
       int redt;
+      int bluea2;
       //assuming you start at first jewel
       blue1 = blockSensor.blue();
       sleep(100);
