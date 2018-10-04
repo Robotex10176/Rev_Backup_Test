@@ -1,0 +1,7 @@
+The following codes are to be put infront of all code files in the Robotex Repository:
+
+A_[NAME] = Active
+T_[NAME] = Test
+O_[NAME] = Old
+U_[NAME] = Unused
+D_[NAME] = Template/Default
