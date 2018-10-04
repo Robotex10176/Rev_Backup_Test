@@ -51,7 +51,7 @@ public class T_RGBLogic extends LinearOpMode {
       redt = blockSensor.red();
       sleep(100);
       bluea = ((blue1 + blue2 + blue3)/3);
-      if (bluea > 75 && redt > 200){
+      if (bluea > 75 && redt > 50){
         //Jewel is not gold, move on
         //at this point robot is at second jewel
         telemetry.addLine("ENTER NEXT JEWEL ... 5");
@@ -77,13 +77,13 @@ public class T_RGBLogic extends LinearOpMode {
         redt2 = blockSensor.red();
         sleep(100);
         bluea2 = ((blue4 + blue5 + blue6)/3);
-        if (bluea2 > 75 && redt2 > 200){
+        if (bluea2 > 75 && redt2 > 50){
           //jewel is not gold, move to third and push it
           telemetry.addLine("[FUNCTION] Knock off 3RD jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
           sleep(2000);
-        }else if (bluea2 < 75 && redt2 > 200){
+        }else if (bluea2 < 75 && redt2 > 50){
           //jewel is gold, move it
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
           telemetry.addLine("[FINISH]");
@@ -95,7 +95,7 @@ public class T_RGBLogic extends LinearOpMode {
           telemetry.update();
           sleep(5000);
         }
-      }else if (bluea < 75 && redt > 200){
+      }else if (bluea < 75 && redt > 50){
         //Jewel is gold, move it.
         telemetry.addLine("[FUNCTION] Knock off 1ST jewel");
         telemetry.addLine("[FINISH]");
@@ -113,13 +113,13 @@ public class T_RGBLogic extends LinearOpMode {
         redt2 = blockSensor.red();
         sleep(100);
         bluea2 = ((blue4 + blue5 + blue6)/3);
-        if (bluea2 > 75 && redt2 > 200){
+        if (bluea2 > 75 && redt2 > 50){
           //jewel is not gold, move to third and push it
           telemetry.addLine("[FUNCTION] Knock off 3RD jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
           sleep(5000);
-        }else if (bluea2 < 75 && redt2 > 200){
+        }else if (bluea2 < 75 && redt2 > 50){
           //jewel is gold, move it
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
           telemetry.addLine("[FINISH]");
