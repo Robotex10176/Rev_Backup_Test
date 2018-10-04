@@ -25,6 +25,7 @@ public class RGBLogic extends LinearOpMode {
       int blue6;
       int bluea;
       int redt;
+      int redt2;
       int bluea2;
       telemetry.addLine("ENTER NEXT JEWEL ... 5");
       telemetry.update();
@@ -50,7 +51,7 @@ public class RGBLogic extends LinearOpMode {
       redt = blockSensor.red();
       sleep(100);
       bluea = ((blue1 + blue2 + blue3)/3);
-      if (bluea > 75){
+      if (bluea > 75 && redt > 200){
         //Jewel is not gold, move on
         //at this point robot is at second jewel
         telemetry.addLine("ENTER NEXT JEWEL ... 5");
@@ -73,15 +74,16 @@ public class RGBLogic extends LinearOpMode {
         blue5 = blockSensor.blue();
         sleep(100);
         blue6 = blockSensor.blue();
+        redt2 = blockSensor.red();
         sleep(100);
         bluea2 = ((blue4 + blue5 + blue6)/3);
-        if (bluea2 > 75){
+        if (bluea2 > 75 && redt2 > 200){
           //jewel is not gold, move to third and push it
           telemetry.addLine("[FUNCTION] Knock off 3RD jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
           sleep(2000);
-        }else if (bluea2 < 75){
+        }else if (bluea2 < 75 && redt2 > 200){
           //jewel is gold, move it
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
           telemetry.addLine("[FINISH]");
@@ -89,11 +91,11 @@ public class RGBLogic extends LinearOpMode {
           sleep(5000);
         }else{
           //jewel error
-          telemetry.addLine("[ERROR]")
+          telemetry.addLine("[ERROR]");
           telemetry.update();
           sleep(5000);
         }
-      }else if (bluea < 75){
+      }else if (bluea < 75 && redt > 200){
         //Jewel is gold, move it.
         telemetry.addLine("[FUNCTION] Knock off 1ST jewel");
         telemetry.addLine("[FINISH]");
@@ -108,15 +110,16 @@ public class RGBLogic extends LinearOpMode {
         blue5 = blockSensor.blue();
         sleep(100);
         blue6 = blockSensor.blue();
+        redt2 = blockSensor.red();
         sleep(100);
         bluea2 = ((blue4 + blue5 + blue6)/3);
-        if (bluea2 > 75){
+        if (bluea2 > 75 && redt2 > 200){
           //jewel is not gold, move to third and push it
           telemetry.addLine("[FUNCTION] Knock off 3RD jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
           sleep(5000);
-        }else if (bluea2 < 75){
+        }else if (bluea2 < 75 && redt2 > 200){
           //jewel is gold, move it
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
           telemetry.addLine("[FINISH]");
