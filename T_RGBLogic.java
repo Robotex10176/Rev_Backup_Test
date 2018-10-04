@@ -27,12 +27,6 @@ public class T_RGBLogic extends LinearOpMode {
       int redt;
       int redt2;
       int bluea2;
-      telemetry.addLine("ENTER NEXT JEWEL ... 5");
-      telemetry.update();
-      sleep(1000);
-      telemetry.addLine("ENTER NEXT JEWEL ... 4");
-      telemetry.update();
-      sleep(1000);
       telemetry.addLine("ENTER NEXT JEWEL ... 3");
       telemetry.update();
       sleep(1000);
@@ -54,12 +48,6 @@ public class T_RGBLogic extends LinearOpMode {
       if (bluea > 50 && redt > 25){
         //Jewel is not gold, move on
         //at this point robot is at second jewel
-        telemetry.addLine("ENTER NEXT JEWEL ... 5");
-        telemetry.update();
-        sleep(1000);
-        telemetry.addLine("ENTER NEXT JEWEL ... 4");
-        telemetry.update();
-        sleep(1000);
         telemetry.addLine("ENTER NEXT JEWEL ... 3");
         telemetry.update();
         sleep(1000);
@@ -88,12 +76,12 @@ public class T_RGBLogic extends LinearOpMode {
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
-          sleep(5000);
+          sleep(3000);
         }else{
           //jewel error
           telemetry.addLine("[ERROR]");
           telemetry.update();
-          sleep(5000);
+          sleep(3000);
         }
       }else if (bluea < 50 && redt > 25){
         //Jewel is gold, move it.
@@ -118,18 +106,18 @@ public class T_RGBLogic extends LinearOpMode {
           telemetry.addLine("[FUNCTION] Knock off 3RD jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
-          sleep(5000);
+          sleep(3000);
         }else if (bluea2 < 50 && redt2 > 25){
           //jewel is gold, move it
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
-          sleep(5000);
+          sleep(3000);
         }else{
           //total jewel error
           telemetry.addLine("[TOTAL ERROR]");
           telemetry.update();
-          sleep(5000);
+          sleep(3000);
         }
       }
         
