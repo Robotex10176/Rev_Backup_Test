@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
 @Autonomous(name = "JewelExample", group = "")
-public class JewelExample extends LinearOpMode {
+public class D_JewelExample extends LinearOpMode {
 
   private ColorSensor blockSensor;
 

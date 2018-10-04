@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp(name = "JewelPractice2", group = "")
-public class JewelPractice extends LinearOpMode {
+public class T_JewelPractice2 extends LinearOpMode {
 	
   /**
    * This function is executed when this Op Mode is selected from the Driver Station.

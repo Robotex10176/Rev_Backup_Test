@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 
 @Autonomous(name = "RGBLogic", group = "")
-public class RGBLogic extends LinearOpMode {
+public class T_RGBLogic extends LinearOpMode {
 
   private ColorSensor blockSensor;
 

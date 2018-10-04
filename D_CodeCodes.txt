@@ -5,3 +5,4 @@ T_[NAME] = Test
 O_[NAME] = Old
 U_[NAME] = Unused
 D_[NAME] = Template/Default
+R_[NAME] = Unknown/Random

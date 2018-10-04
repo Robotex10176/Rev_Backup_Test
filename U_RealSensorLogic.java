@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
 @Autonomous(name = "Sensor Read Thing", group = "")
-public class template extends LinearOpMode {
+public class U_RealSensorLogic extends LinearOpMode {
 
     /**
      * This function is executed when this Op Mode is selected from the Driver Station.

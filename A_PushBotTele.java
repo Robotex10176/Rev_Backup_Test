@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp(name = "PushBotTele", group = "")
-public class PushBotTele extends LinearOpMode {
+public class A_PushBotTele extends LinearOpMode {
 
   private DcMotor R;
   private DcMotor L;

@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp(name = "MotorMovie", group = "")
-public class MotorMovie extends LinearOpMode {
+public class A_MotorMovie extends LinearOpMode {
 
   private DcMotor R;
   private DcMotor L;
