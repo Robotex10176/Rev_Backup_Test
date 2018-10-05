@@ -27,12 +27,6 @@ public class T_RGBLogic extends LinearOpMode {
       int redt;
       int redt2;
       int bluea2;
-      telemetry.addLine("ENTER NEXT JEWEL ... 5");
-      telemetry.update();
-      sleep(1000);
-      telemetry.addLine("ENTER NEXT JEWEL ... 4");
-      telemetry.update();
-      sleep(1000);
       telemetry.addLine("ENTER NEXT JEWEL ... 3");
       telemetry.update();
       sleep(1000);
@@ -51,15 +45,9 @@ public class T_RGBLogic extends LinearOpMode {
       redt = blockSensor.red();
       sleep(100);
       bluea = ((blue1 + blue2 + blue3)/3);
-      if (bluea > 75 && redt > 200){
+      if (bluea > 50 && redt > 25){
         //Jewel is not gold, move on
         //at this point robot is at second jewel
-        telemetry.addLine("ENTER NEXT JEWEL ... 5");
-        telemetry.update();
-        sleep(1000);
-        telemetry.addLine("ENTER NEXT JEWEL ... 4");
-        telemetry.update();
-        sleep(1000);
         telemetry.addLine("ENTER NEXT JEWEL ... 3");
         telemetry.update();
         sleep(1000);
@@ -77,25 +65,25 @@ public class T_RGBLogic extends LinearOpMode {
         redt2 = blockSensor.red();
         sleep(100);
         bluea2 = ((blue4 + blue5 + blue6)/3);
-        if (bluea2 > 75 && redt2 > 200){
+        if (bluea2 > 50 && redt2 > 25){
           //jewel is not gold, move to third and push it
           telemetry.addLine("[FUNCTION] Knock off 3RD jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
           sleep(2000);
-        }else if (bluea2 < 75 && redt2 > 200){
+        }else if (bluea2 < 50 && redt2 > 25){
           //jewel is gold, move it
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
-          sleep(5000);
+          sleep(3000);
         }else{
           //jewel error
           telemetry.addLine("[ERROR]");
           telemetry.update();
-          sleep(5000);
+          sleep(3000);
         }
-      }else if (bluea < 75 && redt > 200){
+      }else if (bluea < 50 && redt > 25){
         //Jewel is gold, move it.
         telemetry.addLine("[FUNCTION] Knock off 1ST jewel");
         telemetry.addLine("[FINISH]");
@@ -113,23 +101,23 @@ public class T_RGBLogic extends LinearOpMode {
         redt2 = blockSensor.red();
         sleep(100);
         bluea2 = ((blue4 + blue5 + blue6)/3);
-        if (bluea2 > 75 && redt2 > 200){
+        if (bluea2 > 50 && redt2 > 25){
           //jewel is not gold, move to third and push it
           telemetry.addLine("[FUNCTION] Knock off 3RD jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
-          sleep(5000);
-        }else if (bluea2 < 75 && redt2 > 200){
+          sleep(3000);
+        }else if (bluea2 < 50 && redt2 > 25){
           //jewel is gold, move it
           telemetry.addLine("[FUNCTION] Knock off 2ND jewel");
           telemetry.addLine("[FINISH]");
           telemetry.update();
-          sleep(5000);
+          sleep(3000);
         }else{
           //total jewel error
           telemetry.addLine("[TOTAL ERROR]");
           telemetry.update();
-          sleep(5000);
+          sleep(3000);
         }
       }
         
