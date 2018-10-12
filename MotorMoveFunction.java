@@ -13,6 +13,21 @@ public class MotorMoveFunction {
     private DcMotor r;
     private Blinker expansion_Hub_2;
     private DistanceSensor blockSensor;
+    public static void moveRotations(float rotations) {
+        L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        R.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        L.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        R.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        
+    }
+    public static void moveCentimeters(float cm) {
+        L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        R.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        L.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        R.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        float toMove = (Math.pi * 9.5)/cm;
+        moveRotations(toMove);
+    }
     @Override
     public void runOpMode() {
         R = hardwareMap.dcMotor.get("r");
@@ -25,10 +40,6 @@ public class MotorMoveFunction {
         //(R/L).leftDrive.getCurrentPosition()
         robot.leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         robot.rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        public static move(cm){
-            double cicumference = 9.5 * Math.PI
-            
-        }
         
         waitForStart();
         
