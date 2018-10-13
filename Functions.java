@@ -1,0 +1,9 @@
+public class Functions{
+    
+    public static int sub(int num1, int num2) {
+        return (num1-num2);
+    }
+    public static void main(String[] args){
+        System.out.println(sub(7, 7));
+    }
+}
