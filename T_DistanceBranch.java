@@ -2,12 +2,13 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
-@TeleOp(name = "distancetest (Blocks to Java)", group = "")
-public class distancetest extends LinearOpMode {
+@Autonomous(name = "Distance Branch", group = "")
+public class T_DistanceBranch extends LinearOpMode {
 
   private ColorSensor blockSensor;
 
@@ -17,20 +18,21 @@ public class distancetest extends LinearOpMode {
   @Override
   public void runOpMode() {
     blockSensor = hardwareMap.colorSensor.get("blockSensor");
-    int distance1;
-    int distance2;
-    int distance3;
-
-    telemetry.addData("key", ((DistanceSensor) blockSensor).getDistance(DistanceUnit.CM));
-    distance1 = blockSensor.getDistance(DistanceUnit.MM);
+    double distance1;
+    double distance2;
+    double distance3;
+    distance1 = ((DistanceSensor) blockSensor).getDistance(DistanceUnit.MM);
     sleep(100);
-    distance2 = blockSensor.getDistance(DistanceUnit.MM);
+    distance2 = ((DistanceSensor) blockSensor).getDistance(DistanceUnit.MM);
     sleep(100);
-    distance3 = blockSensor.getDistance(DistanceUnit.MM);
+    distance3 = ((DistanceSensor) blockSensor).getDistance(DistanceUnit.MM);
     sleep(100);
-    telemetry.addData(distance1)
-    telemetry.addData(distance2)
-    telemetry.addData(distance3)
+    String distances1 = Double.toString(distance1);
+    String distances2 = Double.toString(distance2);
+    String distances3 = Double.toString(distance3);
+    telemetry.addLine(distances1);
+    telemetry.addLine(distances2);
+    telemetry.addLine(distances3);
     telemetry.update();
     sleep(5000);
 

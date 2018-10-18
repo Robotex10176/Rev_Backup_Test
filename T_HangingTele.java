@@ -4,27 +4,27 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name = "PushBotTele", group = "")
-public class A_PushBotTele extends LinearOpMode {
+@TeleOp(name = "HangingTele", group = "")
+public class T_HangingTele extends LinearOpMode {
 
-  private DcMotor R;
-  private DcMotor L;
-
+  private DcMotor H;
   /**
    * This function is executed when this Op Mode is selected from the Driver Station.
    */
   @Override
   public void runOpMode() {
-    R = hardwareMap.dcMotor.get("R");
-    L = hardwareMap.dcMotor.get("L");
+    H = hardwareMap.dcMotor.get("H");
 
     // Put initialization blocks here.
     waitForStart();
     if (opModeIsActive()) {
       // Put run blocks here.
       while (opModeIsActive()) {
-        L.setPower(Math.pow(gamepad1.left_stick_y, 3));
-        R.setPower(-Math.pow(gamepad1.right_stick_y, 3));
+        if (gamepad1.left_bumper) {
+          H.setPower(1);
+        } else {
+          H.setPower(0);
+        }
       }
     }
   }

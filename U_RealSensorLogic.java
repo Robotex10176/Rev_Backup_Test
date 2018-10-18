@@ -10,7 +10,7 @@ public class U_RealSensorLogic extends LinearOpMode {
      * This function is executed when this Op Mode is selected from the Driver Station.
      */
     @Override
-    public static void main(String[ ] args) {
+    public void runOpMode() {
         String hex1 = "FFFF00";
         String hex2 = "FFFFFF";
         String hex31 = "FFFFFF";
