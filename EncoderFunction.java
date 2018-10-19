@@ -11,31 +11,19 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 public class EncoderFunction extends LinearOpMode {
     private DcMotor L;
     private DcMotor R;
+    L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+    R.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     public void moveRotations(double rotations) {
-        L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        R.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        L.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        R.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        double pos = R.getCurrentPosition() + L.getCurrentPosition();
-        pos = pos/2;
-        
-        while (pos < rotations*1400) {
-            pos = R.getCurrentPosition() + L.getCurrentPosition();
-            pos = pos/2;
-            R.setPower(1);
-            L.setPower(-1);
-            
-        }
-        R.setPower(0);
-        L.setPower(0);
+	rotations = rotations * 1440
+	R.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+	L.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+	R.setTargetPosition(rotations);
+	L.setTargetPosition(rotations);
+	
         
         
     }
     public void moveCentimeters(double cm) {
-        L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        R.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        L.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        R.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         double toMove = (3.14159265359 * 9.5)/cm;
         moveRotations(toMove);
     }
@@ -57,11 +45,8 @@ public class EncoderFunction extends LinearOpMode {
         L = hardwareMap.dcMotor.get("L");
         waitForStart();
         
-        while (opModeIsActive()) {
-            moveRotations(30);
-            telemetry.addData("Right Motor Position:", R.getCurrentPosition());
-            telemetry.addData("Left Motor Positition:",L.getCurrentPosition());
-            telemetry.update();
+        if (opModeIsActive()) {
+            moveRotations(3);
         }
     }
 }
