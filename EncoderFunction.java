@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Blinker;
@@ -11,16 +12,18 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 public class EncoderFunction extends LinearOpMode {
     private DcMotor L;
     private DcMotor R;
-    L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-    R.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     public void moveRotations(double rotations) {
-	rotations = rotations * 1440
-	R.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-	L.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-	R.setTargetPosition(rotations);
-	L.setTargetPosition(rotations);
-	
+        int torotate = (int) Math.ceil(rotations * 1440.0);
+        R.setTargetPosition(torotate);
+        L.setTargetPosition(torotate);
+        R.setPower(1);
+        L.setPower(1);
         
+        while (L.isBusy() && R.isBusy()) {
+            sleep(1);
+        }
+        R.setPower(0);
+        L.setPower(0);
         
     }
     public void moveCentimeters(double cm) {
@@ -29,6 +32,13 @@ public class EncoderFunction extends LinearOpMode {
     }
     @Override
     public void runOpMode() {
+        R = hardwareMap.dcMotor.get("R");
+        L = hardwareMap.dcMotor.get("L");
+        L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        R.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        R.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        L.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        L.setDirection(DcMotorSimple.Direction.REVERSE);
         
         //to reset
         //L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -41,12 +51,10 @@ public class EncoderFunction extends LinearOpMode {
         //to set to run
         //L.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         //R.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        R = hardwareMap.dcMotor.get("R");
-        L = hardwareMap.dcMotor.get("L");
         waitForStart();
         
         if (opModeIsActive()) {
-            moveRotations(3);
+            moveCentimeters(30);
         }
     }
 }
