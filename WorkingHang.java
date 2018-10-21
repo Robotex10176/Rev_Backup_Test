@@ -49,7 +49,7 @@ public class EncoderFunction_Copy extends LinearOpMode {
         waitForStart();
         
         if (opModeIsActive()) {
-            moveCentimeters(8.5);
+            moveCentimeters(12);
         }
     }
 }
