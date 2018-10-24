@@ -27,7 +27,7 @@ public class EncoderFunction extends LinearOpMode {
         
     }
     public void moveCentimeters(double cm) {
-        double toMove = (3.14159265359 * 9.5)/cm;
+        double toMove = cm/(3.14159265359 * 9.8);
         moveRotations(toMove);
     }
     @Override
