@@ -32,7 +32,6 @@ public class EncoderFunction_Copy extends LinearOpMode {
         climb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         climb.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         climb.setDirection(DcMotorSimple.Direction.REVERSE);
-        moveCentimeters(-12);
         
         
         
