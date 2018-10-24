@@ -7,38 +7,33 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Blinker;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 
-@Autonomous(name = "EncoderFunction", group = "")
+@Autonomous(name = "EncoderFunction_Copy", group = "")
 
-public class EncoderFunction extends LinearOpMode {
-    private DcMotor L;
-    private DcMotor R;
+public class ClimbFunction extends LinearOpMode {
+    private DcMotor climb;
     public void moveRotations(double rotations) {
-        int torotate = (int) Math.ceil(rotations * 1440.0);
-        R.setTargetPosition(torotate);
-        L.setTargetPosition(torotate);
-        R.setPower(1);
-        L.setPower(1);
+        int torotate = (int) Math.ceil(rotations * 4320.0);
+        climb.setTargetPosition(torotate);
+        climb.setPower(1);
         
-        while (L.isBusy() && R.isBusy()) {
+        while (climb.isBusy()) {
             sleep(1);
         }
-        R.setPower(0);
-        L.setPower(0);
+        climb.setPower(0);
         
     }
     public void moveCentimeters(double cm) {
-        double toMove = cm/(3.14159265359 * 9.5);
+        double toMove = cm/(3.14159265359 * 1.5*2);
         moveRotations(toMove);
     }
     @Override
     public void runOpMode() {
-        R = hardwareMap.dcMotor.get("R");
-        L = hardwareMap.dcMotor.get("L");
-        L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        R.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        R.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        L.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        L.setDirection(DcMotorSimple.Direction.REVERSE);
+        climb = hardwareMap.dcMotor.get("climb");
+        climb.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        climb.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        climb.setDirection(DcMotorSimple.Direction.REVERSE);
+        
+        
         
         //to reset
         //L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -54,7 +49,7 @@ public class EncoderFunction extends LinearOpMode {
         waitForStart();
         
         if (opModeIsActive()) {
-            moveCentimeters(150);
+            moveCentimeters(29);
         }
     }
 }
