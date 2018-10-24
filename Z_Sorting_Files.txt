@@ -7,3 +7,4 @@ U_[NAME] = Unused
 D_[NAME] = Template/Default
 R_[NAME] = Unknown/Random
 S_[NAME] = Segments of usable code
+Z_[NAME] = Text Info
