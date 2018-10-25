@@ -42,7 +42,7 @@ public class template extends LinearOpMode {
     // Put initialization blocks here.
     waitForStart();
     if (opModeIsActive()) {
-      // Put run blocks here.
+      Turn(90.0);
       while (opModeIsActive()) {
         // Put loop blocks here.
 	
