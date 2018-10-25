@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Blinker;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 
+//Autonomous code part for going down from hanger
+
 @Autonomous(name = "EncoderFunction_Copy", group = "")
 
 public class ClimbFunction extends LinearOpMode {
