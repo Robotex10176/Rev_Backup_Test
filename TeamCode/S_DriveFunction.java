@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Blinker;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 
+//Autonomous code part for driving a certain distance
+
 @Autonomous(name = "EncoderFunction", group = "")
 
 public class EncoderFunction extends LinearOpMode {
