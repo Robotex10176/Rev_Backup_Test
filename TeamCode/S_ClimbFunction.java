@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 
 public class ClimbFunction extends LinearOpMode {
     private DcMotor climb;
-    public void moveRotations(double rotations) {
+    public void climbRotations(double rotations) {
         int torotate = (int) Math.ceil(rotations * 4320.0);
         climb.setTargetPosition(torotate);
         climb.setPower(1);
@@ -24,7 +24,7 @@ public class ClimbFunction extends LinearOpMode {
         climb.setPower(0);
         
     }
-    public void moveCentimeters(double cm) {
+    public void climbCentimeters(double cm) {
         double toMove = cm/(3.14159265359 * 1.5*2);
         moveRotations(toMove);
     }
