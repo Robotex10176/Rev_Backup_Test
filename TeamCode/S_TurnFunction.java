@@ -1,52 +1,65 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
+import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
-@TeleOp(name = "S_TurnFunction", group = "")
-public class template extends LinearOpMode {
-  public void spin(double rotations) {
-        int torotate = (int) Math.ceil(rotations * 1440.0);
-        R.setTargetPosition(torotate);
-        L.setTargetPosition(torotate);
-        R.setPower(1);
-        L.setPower(1);
-        
-        while (L.isBusy() && R.isBusy()) {
-            sleep(1);
-        }
-        R.setPower(0);
-        L.setPower(0);
-        
+
+@Autonomous(name = "S_TurnFunction", group = "")
+public class S_TurnFunction extends LinearOpMode {
+  private DcMotor R;
+  private DcMotor L;
+  private BNO055IMU imu;
+  
+  public void turnRight(double degrees) {
+    while (-1*(imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle) < degrees) {
+      R.setPower(-1);
+      L.setPower(1);
+      
+    }
+    R.setPower(0);
+    L.setPower(0);
+    
   }
-  public void spinCentimeters(double cm) {
-        spin(toMove);
+  public void turnLeft(double degrees) {
+    while (-1*(imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle) > degrees) {
+      R.setPower(1);
+      L.setPower(-1);
+      
+    }
+    R.setPower(0);
+    L.setPower(0);
+    
   }
-  public static double convertA(cm) {
-    //cm to degrees
-    return (cm/80)*360
-  }
-  public static double convertB(cm) {
-    //degrees to cm
-    return (cm/360)*80
-  }
-  public static void Turn(double degrees){
-    double toturn = convertB(degrees);
-    spinCentimeters(toturn);
-  }
+  
+  
+  
   /**
    * This function is executed when this Op Mode is selected from the Driver Station.
    */
   @Override
   public void runOpMode() {
+    R = hardwareMap.dcMotor.get("R");
+    L = hardwareMap.dcMotor.get("L");
+    L.setDirection(DcMotorSimple.Direction.REVERSE);
+    
+    BNO055IMU.Parameters parem = new BNO055IMU.Parameters();
+    parem.mode = BNO055IMU.SensorMode.IMU;
+    parem.angleUnit = BNO055IMU.AngleUnit.DEGREES;
+    parem.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
+    parem.loggingEnabled = false;
+    imu = hardwareMap.get(BNO055IMU.class, "imu");
+    imu.initialize(parem);
     // Put initialization blocks here.
     waitForStart();
     if (opModeIsActive()) {
-      Turn(90.0);
-      while (opModeIsActive()) {
-        // Put loop blocks here.
-	
-      }
+      imu.initialize(parem);
+      turnRight(90);
     }
   }
 }
