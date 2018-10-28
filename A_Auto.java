@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @Autonomous(name = "Autonomous", group = "")
-public class template extends LinearOpMode {
+public class Autonomous extends LinearOpMode {
   private DcMotor R;
   private DcMotor L;
   private BNO055IMU imu;
@@ -30,7 +30,7 @@ public class template extends LinearOpMode {
     
   }
   public void climbRotations(double rotations) {
-        int torotate = (int) Math.ceil(rotations * 4320.0);
+        int torotate = (int) Math.ceil(rotations * 3600.0);
         climb.setTargetPosition(torotate);
         climb.setPower(1);
         
@@ -44,7 +44,7 @@ public class template extends LinearOpMode {
         double toMove = cm/(3.14159265359 * 1.5*2);
         moveRotations(toMove);
     }
-    public void moveRotations(double rotations) {
+    public void DriveRotations(double rotations) {
         int torotate = (int) Math.ceil(rotations * 1440.0);
         R.setTargetPosition(torotate);
         L.setTargetPosition(torotate);
@@ -58,7 +58,7 @@ public class template extends LinearOpMode {
         L.setPower(0);
         
     }
-    public void moveCentimeters(double cm) {
+    public void driveCentimeters(double cm) {
         double toMove = cm/(3.14159265359 * 9.5);
         moveRotations(toMove);
     }
