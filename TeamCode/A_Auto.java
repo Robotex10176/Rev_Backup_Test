@@ -99,11 +99,22 @@ public class A_Auto extends LinearOpMode {
         //red (or blue) claiming side
         climbCentimeters(30);  //Come down
         turnLeft(90);  //turn left 90 degrees
-        driveCentimeters(10);//move straight until we are in the claiming zone need to know tihs value
-        dropservo.setPosition(0.9);//drop claimer
-        driveCentimeters(10);//back up to get out of the way need to know this value
+        driveCentimeters(208);//move straight until we are in the claiming zone need to know tihs value
+        dropservo.setPosition(0.8);//drop claimer
+        driveCentimeters(150);//back up to get out of the way need to know this value
+        dropservo.setPosition(0.2);
         //red (or blue) crater side
-        
+        ClimCentimeters(30);//land
+        turnLeft(90);//turn left 90 degrees
+        driveCentimeters(10);//drive straight to crater    //need to know this value
+        driveCentimeters(-10);//back up a little           //need to know this value
+        turnLeft(90);//turn left 90 degrees
+        driveCentimeters(10);//drive straight              //need to know this value
+        turnLeft(45);//left 45 degrees
+        driveCentimeters(10);//drive straight              //need to know this value
+        dropservo.setPosition(0.8);//drop claimer          //need to know this value
+        driveCentimeters(-10);//back up                    //need to know this value
+        dropservo.setPosition(0.2);
       }
     }
   }
