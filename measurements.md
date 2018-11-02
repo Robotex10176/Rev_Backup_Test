@@ -45,9 +45,9 @@ climbing centimers: 30 to come down from pre-configured state
 
 drive to claiming zone: 175 to go in
 
-back up: -150
-
 servo out: 0.8
+
+back up: -150
 
 servo in: 0.2
 
