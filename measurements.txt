@@ -1,0 +1,4 @@
+tile size: 2 ft
+diagonal length: root 8 feet or ~ 2.82
+corner to center ball/cube: root 8 divided by 2 + root 8
+or: 2.
