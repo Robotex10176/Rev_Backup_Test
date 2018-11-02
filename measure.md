@@ -50,3 +50,21 @@ back up: -150
 servo out: 0.8
 
 servo in: 0.2
+
+### Crater Side
+
+climbing centimeters : 30 to come down from pre-configured state
+
+drive to push gold: 
+
+back up:
+
+drive until alligned:
+
+drive to claiming zone:
+
+servo out: 0.8
+
+back up: 
+
+servo in: 0.2
