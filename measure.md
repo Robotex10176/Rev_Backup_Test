@@ -36,3 +36,17 @@ Corner to center ball/cube: 113 CM
 Corner to center of lander: 258 cm
 
 Corner to corner: 516 cm
+
+## Current Autonomous distance inputs:
+
+### Claiming Zone Side
+
+climbing centimers: 30 to come down from pre-configured state
+
+drive to claiming zone: 175 to go in
+
+back up: -150
+
+servo out: 0.8
+
+servo in: 0.2
