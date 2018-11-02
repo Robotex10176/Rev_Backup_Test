@@ -1,4 +1,4 @@
-#mesurements:
+# Math for Measuremnts:
 
 tile size: 2 ft
 diagonal length: root 8 feet or ~ 2.82
@@ -16,7 +16,8 @@ or about 16.92 feet
 which is 515.7216 cm
 so about 516 cm
 
-Final Measurements (aproximate):
+## Final Measurements (aproximate):
+
 Corner to center ball/cube: 113 CM
 Corner to center of lander: 258 cm
 Corner to corner: 516 cm
