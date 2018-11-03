@@ -142,20 +142,20 @@ public class CRATER_SIDE extends LinearOpMode {
       //sleep(1000);
       
       //red (or blue) crater side
-      climbCentimeters(32);//land
+      //climbCentimeters(35);//land
       turnLeft(70);//turn left 90 degrees
       driveCentimeters(50);//drive straight to crater 
       sleep(1000);
       driveCentimeters(-20);//back up a little
-      turnRight(80);//turn left 90 degrees
-      driveCentimeters(96);//drive straight
-      turnRight(15);//left 45 degrees
+      turnLeft(80);//turn left 90 degrees
       driveCentimeters(80);//drive straight
+      turnLeft(40);//left 45 degrees
+      driveCentimeters(85);//drive straight
       dropservo.setPosition(0.8);//drop claimer
-      sleep(1000);
+      sleep(2000);
       driveCentimeters(-40);//back up
       dropservo.setPosition(0.2);
-      sleep(1000);
+      sleep(3000);
     }
   }
 }

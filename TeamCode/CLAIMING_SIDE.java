@@ -132,14 +132,14 @@ public class CLAIMING_SIDE extends LinearOpMode {
     waitForStart();
     if (opModeIsActive()) {
       //red (or blue) claiming side
-      climbCentimeters(32);  //Come down
+      climbCentimeters(35);  //Come down
       turnLeft(65);  //turn left 90 degrees
       driveCentimeters(100);//move straight until we are in the claiming zone need to know tihs value
       dropservo.setPosition(0.8);//drop claimer
-      sleep(1000);
+      sleep(2000);
       driveCentimeters(-75);//back up to get out of the way need to know this value
       dropservo.setPosition(0.2);
-      sleep(1000);
+      sleep(3000);
       
       //red (or blue) crater side
       //climbCentimeters(32);//land
