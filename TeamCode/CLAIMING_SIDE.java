@@ -12,13 +12,14 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@Autonomous(name = "A_Auto", group = "")
-public class A_Auto extends LinearOpMode {
+@Autonomous(name = "CLAIMING_SIDE", group = "")
+public class CLAIMING_SIDE extends LinearOpMode {
   private DcMotor R;
   private DcMotor L;
   private BNO055IMU imu;
   private DcMotor climb;
   private Servo dropservo;
+  private BNO055IMU.Parameters parem;
   
   
     public void DriveRotations(double rotations) {
@@ -29,8 +30,8 @@ public class A_Auto extends LinearOpMode {
         int torotate = (int) Math.ceil(rotations * 1440.0);
         R.setTargetPosition(torotate);
         L.setTargetPosition(torotate);
-        R.setPower(1);
-        L.setPower(1);
+        R.setPower(0.8);
+        L.setPower(0.8);
         
         while (L.isBusy() && R.isBusy()) {
             sleep(1);
@@ -64,13 +65,14 @@ public class A_Auto extends LinearOpMode {
         double toMove = cm/(3.14159265359 * 1.5*2);
         climbRotations(toMove);
     }
-    public void turnRight(double degrees) {
+  public void turnRight(double degrees) {
+    imu.initialize(parem);
     R.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     R.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     L.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-    R.setPower(-0.5);
-    L.setPower(0.5);
+    R.setPower(-0.3);
+    L.setPower(0.3);
     while (-1*(imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle) < degrees) {
       //empty for speed (intentional)
     }
@@ -79,21 +81,19 @@ public class A_Auto extends LinearOpMode {
     
   }
   public void turnLeft(double degrees) {
+    imu.initialize(parem);
     R.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     L.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     R.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     L.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     
-    R.setPower(0.5);
-    L.setPower(-0.5);
+    R.setPower(0.3);
+    L.setPower(-0.3);
     while ((imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES).firstAngle) < degrees) {
       //empty for speed (intentional)
     }
     R.setPower(0);
     L.setPower(0);
-    sleep(5000);
-    
-    
   }
   public void waitForstop() {
     while (R.isBusy() || L.isBusy() || climb.isBusy()) {
@@ -112,12 +112,13 @@ public class A_Auto extends LinearOpMode {
     L = hardwareMap.dcMotor.get("L");
     climb = hardwareMap.dcMotor.get("climb");
     dropservo = hardwareMap.servo.get("dropservo");
+    
     L.setDirection(DcMotor.Direction.REVERSE);
     climb.setDirection(DcMotor.Direction.REVERSE);
     R.setZeroPowerBehavior(ZeroPowerBehavior.BRAKE);
     L.setZeroPowerBehavior(ZeroPowerBehavior.BRAKE);
     climb.setZeroPowerBehavior(ZeroPowerBehavior.BRAKE);
-    BNO055IMU.Parameters parem = new BNO055IMU.Parameters();
+    parem = new BNO055IMU.Parameters();
     parem.mode = BNO055IMU.SensorMode.IMU;
     parem.angleUnit = BNO055IMU.AngleUnit.DEGREES;
     parem.accelUnit = BNO055IMU.AccelUnit.METERS_PERSEC_PERSEC;
@@ -131,8 +132,8 @@ public class A_Auto extends LinearOpMode {
     waitForStart();
     if (opModeIsActive()) {
       //red (or blue) claiming side
-      climbCentimeters(33);  //Come down
-      turnLeft(60);  //turn left 90 degrees
+      climbCentimeters(32);  //Come down
+      turnLeft(65);  //turn left 90 degrees
       driveCentimeters(100);//move straight until we are in the claiming zone need to know tihs value
       dropservo.setPosition(0.8);//drop claimer
       sleep(1000);
@@ -141,17 +142,20 @@ public class A_Auto extends LinearOpMode {
       sleep(1000);
       
       //red (or blue) crater side
-      //calClimCentimeters(30);//land
-      //turnLeft(90);//turn left 90 degrees
-      //driveCentimeters(10);//drive straight to crater    //need to know this value
-      //driveCentimeters(-10);//back up a little           //need to know this value
-      ///turnLeft(90);//turn left 90 degrees
-      //driveCentimeters(10);//drive straight              //need to know this value
-      //turnLeft(45);//left 45 degrees
-      //driveCentimeters(10);//drive straight              //need to know this value
+      //climbCentimeters(32);//land
+      //turnLeft(80);//turn left 90 degrees
+      //driveCentimeters(50);//drive straight to crater    //need to know this value
+      //sleep(1000);
+      //driveCentimeters(-20);//back up a little           //need to know this value
+      //turnRight(80);//turn left 90 degrees
+      //driveCentimeters(96);//drive straight              //need to know this value
+      //turnRight(35);//left 45 degrees
+      //driveCentimeters(91);//drive straight              //need to know this value
       //dropservo.setPosition(0.8);//drop claimer          //need to know this value
-      //driveCentimeters(-10);//back up                    //need to know this value
+      //sleep(1000);
+      //driveCentimeters(-90);//back up                    //need to know this value
       //dropservo.setPosition(0.2);
+      //sleep(1000);
     }
   }
 }
